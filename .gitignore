@@ -21,8 +21,10 @@ mono_crash.*
 # Maven Java
 */target/
 *.jar
-# Installation folder
+# exclude folder
 apptoinstall/*
+# exception to the rule
+!apptoinstall/.gitkeep 
 
 # Build results
 [Dd]ebug/
