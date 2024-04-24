@@ -10,6 +10,7 @@ This demo demonstarate Old and NEW way to dimaicaly create struture of files ins
 and
 
 <!-- Harvest file components from publish folder - OK - NEW way to get content of folders-->
+
 <HeatDirectory OutputFile="SubFolder1.wxs"
 			   DirectoryRefId="SubFolder1Dir"
 			   ComponentGroupName="SubFolder1Components"
@@ -43,6 +44,6 @@ Wix 3.14
 
 ## How to build
 
-1.Open ".\WixSampleInstaller.sln" in VS 2022
-2.Build project
-3.Inside the folder ".\WixSampleInstaller\bin\x86\Debug" will be generate .msi installation file => WixSampleInstaller.msi
+1. Open ".\WixSampleInstaller.sln" in VS 2022
+2. Build project
+3. Inside the folder ".\WixSampleInstaller\bin\x86\Debug" will be generate .msi installation file => WixSampleInstaller.msi
