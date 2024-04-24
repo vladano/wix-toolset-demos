@@ -46,5 +46,3 @@ Wix 3.14
 1.Open ".\WixSampleInstaller.sln" in VS 2022
 2.Build project
 3.Inside the folder ".\WixSampleInstaller\bin\x86\Debug" will be generate .msi installation file => WixSampleInstaller.msi
-
-
