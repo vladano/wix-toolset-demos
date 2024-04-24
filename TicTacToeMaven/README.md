@@ -10,10 +10,10 @@ The modular object design follows the MVC design pattern and the Single Responsi
 Apache Maven
 JRE
 
-# To compile use:
+To compile use:
 mvn compile
 
-# To build:
+To build:
 mvn package
 
 Output will be gaenerate to folder "target" => file "TicTacToe-1.1.0.jar"
