@@ -26,10 +26,14 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
-apptoinstall/
 msbuild.log
 msbuild.err
 msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+
+# exclude folder
+apptoinstall/*
+# exception to the rule
+!apptoinstall/.gitkeep 
