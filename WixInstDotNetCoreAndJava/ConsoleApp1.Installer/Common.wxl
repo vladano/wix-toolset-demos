@@ -1,0 +1,20 @@
+﻿<WixLocalization Culture="en-us" xmlns="http://wixtoolset.org/schemas/v4/wxl">
+
+  <String Id="Company" Value="VladanO" />
+
+  <String Id="ProductNameFolder" Value="TicTacToeJava_NetCoreApp" />
+  
+  <String Id="ProductName_x86" Value="TicTacToeJava_NetCore App (32bit)" />
+  <String Id="ProductName_x64" Value="TicTacToeJava_NetCoreApp App (64bit)" />
+
+  <String Id="Description" Value="This is a description" />
+  <String Id="Comments" Value="Some comment" />
+  <!--<String Id="Keywords" Value="dotnet,core,application,installer" />-->
+  <String Id="Keywords" Value="core,dotnet,java,application,installer" />
+
+  <!--<String Id="DowngradeErrorMessage" Value="A newer version of Console App is already installed." />-->
+	<String Id="DowngradeErrorMessage" Value="A newer version of TicTacToeJava_NetCore App is already installed." />
+
+	<String Id="Language" Value="1033" />
+  
+</WixLocalization>

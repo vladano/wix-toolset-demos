@@ -1,0 +1,44 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" 
+	 xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+	
+  <Package Name="WixSampleInstaller" 
+		   Language="1033" 
+		   Version="1.0.0.0" 
+		   Manufacturer="VladanO" 
+		   UpgradeCode="f127fb96-0eac-4f32-9bc8-3605bc567f35" 
+		   InstallerVersion="200" 
+		   ProductCode="E69EFC6A-2817-49E5-AF52-A4451BD1D0FF">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of WixSampleInstaller is already installed." />
+
+	  <!-- Include .cab file into .msi file -->
+	  <MediaTemplate EmbedCab="yes" />
+
+	  <ui:WixUI Id="WixUI_Advanced" />
+	  
+    <WixVariable Id="WixUIBannerBmp" Value="StaticFiles\banner.png" />
+    <WixVariable Id="WixUIDialogBmp" Value="StaticFiles\background.png" />
+    <WixVariable Id="WixUILicenseRtf" Value="StaticFiles\license.rtf" />
+
+    <Property Id="ApplicationFolderName" Value="WixSampleInstaller" />
+    <Property Id="WixAppFolder" Value="WixPerMachineFolder" />
+
+    <Feature Id="SubFolder1Feature" Title="SubFolder1 Feature" Level="1">
+      <ComponentGroupRef Id="SubFolder1Components" />
+    </Feature>
+    <Feature Id="SubFolder2Feature" Title="SubFolder2 Feature" Level="1">
+      <ComponentGroupRef Id="SubFolder2Components" />
+    </Feature>
+
+  </Package>
+
+  <Fragment>
+      <StandardDirectory Id="ProgramFilesFolder">
+        <Directory Id="APPLICATIONFOLDER">
+          <Directory Id="SubFolder1Dir" Name="SubFolder1" />
+          <Directory Id="SubFolder2Dir" Name="SubFolder2" />
+        </Directory>
+      </StandardDirectory>
+    </Fragment>
+
+</Wix>

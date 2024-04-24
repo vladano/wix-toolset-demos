@@ -1,0 +1,92 @@
+﻿<Project>
+  <Import Project="Sdk.props" Sdk="WixToolset.Sdk" Version="5.0.0" />
+  <PropertyGroup>
+    <OutputName>ConsoleApp-$(Configuration)-$(Platform)</OutputName>
+    <Cultures>;</Cultures>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+	
+  <!--<ItemGroup>
+    <ProjectReference Include="..\ConsoleApp1\ConsoleApp1.csproj">
+      <Name>ConsoleApp1</Name>
+      <Project>{f7d45e05-717f-4cfd-81e4-58854125aa0f}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>-->
+	
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Util.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.UI.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.Heat" Version="5.0.0" />
+  </ItemGroup>
+  <!-- Before build -->
+  <Import Project="Sdk.targets" Sdk="WixToolset.Sdk" Version="5.0.0" />
+	
+  <Target Name="BeforeBuild">
+    <!-- Clean previous build folder -->
+    <!--<Exec Command="rd /s /q ..\ConsoleApp1\bin\$(Configuration)\netcoreapp2.0\win-$(Platform)" />-->
+    <!-- Publish dotnet core app -->
+    <!--<Exec Command="dotnet publish ..\ConsoleApp1\ConsoleApp1.csproj -c $(Configuration) -r win-$(Platform)" />-->
+    <!-- Get assembly version -->
+    <!--<GetAssemblyIdentity AssemblyFiles="..\ConsoleApp1\bin\$(Configuration)\netcoreapp2.0\win-$(Platform)\ConsoleApp1.dll">
+      <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
+    </GetAssemblyIdentity>-->
+	  <GetAssemblyIdentity AssemblyFiles="..\apptoinstall\ConsoleApp1.dll">
+		  <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
+	  </GetAssemblyIdentity>
+	  <!-- Define some variables we need -->
+    <PropertyGroup>
+      <!--<DefineConstants>BuildVersion=%(AssemblyVersion.Version);BasePath=..\ConsoleApp1\bin\$(Configuration)\netcoreapp2.0\win-$(Platform)\publish</DefineConstants>-->
+		<DefineConstants>BuildVersion=%(AssemblyVersion.Version);BasePath=..\apptoinstall</DefineConstants>
+	</PropertyGroup>
+    <!-- Harvest file components from publish folder -->
+    <!--<HeatDirectory OutputFile="ComponentsGenerated.wxs" 
+				   DirectoryRefId="INSTALLFOLDER" 
+				   ComponentGroupName="PublishedComponents" 
+				   SuppressCom="true" 
+				   Directory="..\ConsoleApp1\bin\$(Configuration)\netcoreapp2.0\win-$(Platform)\publish" 
+				   SuppressFragments="true" 
+				   SuppressRegistry="true" 
+				   SuppressRootDirectory="true" 
+				   AutoGenerateGuids="false" 
+				   GenerateGuidsNow="true" 
+				   ToolPath="$(WixToolPath)" 
+				   PreprocessorVariable="var.BasePath" />-->
+	  <HeatDirectory OutputFile="ComponentsGenerated.wxs"
+					 DirectoryRefId="INSTALLFOLDER"
+					 ComponentGroupName="PublishedComponents"
+					 SuppressCom="true"
+					 Directory="..\apptoinstall"
+					 SuppressFragments="true"
+					 SuppressRegistry="true"
+					 SuppressRootDirectory="true"
+					 AutoGenerateGuids="false"
+					 GenerateGuidsNow="true"
+					 ToolPath="$(WixToolPath)"
+					 PreprocessorVariable="var.BasePath" />
+  </Target>
+	
+  <Target Name="AfterBuild">
+    <!-- Get assembly version -->
+    <!--<GetAssemblyIdentity AssemblyFiles="..\ConsoleApp1\bin\$(Configuration)\netcoreapp2.0\win-$(Platform)\ConsoleApp1.dll">
+      <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
+    </GetAssemblyIdentity>-->
+	  <GetAssemblyIdentity AssemblyFiles="..\apptoinstall\ConsoleApp1.dll">
+		  <Output TaskParameter="Assemblies" ItemName="AssemblyVersion" />
+	  </GetAssemblyIdentity>
+	  <!-- Rename and move final MSI -->
+    <Exec Command="if not exist Installs mkdir Installs" />
+	  <Exec Command="dir .\bin\$(Platform)\$(Configuration)\$(OutputName).msi" />
+	  <!--<Exec Command="copy .\bin\$(Platform)\$(Configuration)\$(OutputName).msi .\Installs\ConsoleApp-%(AssemblyVersion.Version)-$(Configuration)-$(Platform)-cp.msi" />-->
+	  <!--<Exec Command="move .\bin\$(Platform)\$(Configuration)\$(OutputName).msi .\Installs\ConsoleApp-%(AssemblyVersion.Version)-$(Configuration)-$(Platform).msi" />-->
+	  <Exec Command="move .\bin\$(Platform)\$(Configuration)\$(OutputName).msi .\Installs\TicTacToe-%(AssemblyVersion.Version)-$(Configuration)-$(Platform).msi" />
+  </Target>
+</Project>

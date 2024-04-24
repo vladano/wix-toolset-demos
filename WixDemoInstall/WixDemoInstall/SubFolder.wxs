@@ -1,0 +1,146 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+    <Fragment>
+        <DirectoryRef Id="SubFolderDir">
+            <Component Id="cmprELiBV.oljC.iX3HYpYSRHy_3yU" Guid="{756C8EA4-F6E4-4315-8D18-F5EA09CB8678}">
+                <File Id="filWHiKLnxDILfi_BWiiwZdGfnJVxI" KeyPath="yes" Source="$(var.SubFolderSourceDir)\200-2000416_coconut-trees-wallpapers-windows-xp-wallpaper-island.jpg" />
+            </Component>
+            <Component Id="cmpC6r24mMV7ztiKwmN_n1H60MsM5E" Guid="{E96CA09A-A8B5-43DC-9282-22951C6678E1}">
+                <File Id="filjhTxMPq2qhTI06oYQtUZDLHnB60" KeyPath="yes" Source="$(var.SubFolderSourceDir)\AU-wp1.jpg" />
+            </Component>
+            <Component Id="cmpvdQYq6tUswzB45IhlvzqNmkYw5A" Guid="{63865CB8-4681-4274-AA14-1A1840B48B48}">
+                <File Id="filwNcDcOK9QZjGOKUvx6RibxpiVNs" KeyPath="yes" Source="$(var.SubFolderSourceDir)\AU-wp2.jpg" />
+            </Component>
+            <Component Id="cmpuL7NRRcwKkg3QqnTIydn7nX.Zog" Guid="{FD7246DF-D406-46BA-BBF2-C00DABEF5273}">
+                <File Id="filQj9EFPz91tdHrFLXC_UWqujHPVw" KeyPath="yes" Source="$(var.SubFolderSourceDir)\AU-wp3.jpg" />
+            </Component>
+            <Component Id="cmpDCcQOEhBHorDa_8BdPxtzUHMX4E" Guid="{EA4C5DD0-C7E9-408B-A660-A64FB4CB7582}">
+                <File Id="filVEN._2N0MyePLbGuaMBIiHOnmaY" KeyPath="yes" Source="$(var.SubFolderSourceDir)\AU-wp4.jpg" />
+            </Component>
+            <Component Id="cmp6Vp354MGBfR9WYItD3xVroe4DjI" Guid="{A8618002-679D-486B-8BB2-7E61FFA7B450}">
+                <File Id="fil7AbZ93VIfmOZYuduZUp_yoz_dBI" KeyPath="yes" Source="$(var.SubFolderSourceDir)\AU-wp5.jpg" />
+            </Component>
+            <Component Id="cmpdlri0H9CMHks82O16AVEjgZt4gQ" Guid="{00AEED39-BA11-4708-91EC-B8F2F1CD36EB}">
+                <File Id="filOWmhFrLnMRaaqSCi5pb8sECxqKo" KeyPath="yes" Source="$(var.SubFolderSourceDir)\AU-wp6.jpg" />
+            </Component>
+            <Component Id="cmpEmou8WqvAcRfBlaweuk5Fv6CEtc" Guid="{BA4D4F23-0656-4141-BEE1-946DE59ED3D2}">
+                <File Id="filXGgXn2SsGnRijF_63F0wGrOYgS4" KeyPath="yes" Source="$(var.SubFolderSourceDir)\be285b21a6995a1ed5331b3aad1fa8b5.jpg" />
+            </Component>
+            <Component Id="cmp2dukTZZXuvTV2NylKDobAtIBMX8" Guid="{F9F8C5E3-9DA6-4D9A-83CA-9B8B179760A0}">
+                <File Id="fil9RXVDXxKkphyCmk8LkeWVy4xnag" KeyPath="yes" Source="$(var.SubFolderSourceDir)\CA-wp1.jpg" />
+            </Component>
+            <Component Id="cmpfSrWI4oKrYiT4c41OlfNyK9LRIs" Guid="{EDD7F1A1-30D3-42DB-AA60-8D48E9C1AEEE}">
+                <File Id="filB7c1G26eHsV5CSIvglGqS4jymhs" KeyPath="yes" Source="$(var.SubFolderSourceDir)\CA-wp2.jpg" />
+            </Component>
+            <Component Id="cmpE5dh3Hu4DSEN_lnyGxofbXzk8tI" Guid="{B174CEA2-E618-4F3C-9C79-6CC02207EF87}">
+                <File Id="filSghXS_iA5Ai7iy2ih0M6CKd7sWk" KeyPath="yes" Source="$(var.SubFolderSourceDir)\CA-wp3.jpg" />
+            </Component>
+            <Component Id="cmp4PYZK.IOuVhWGgpNw_.69fKfkAw" Guid="{320B736E-F159-4727-805B-37B6EB0DEBA1}">
+                <File Id="filQg5cCK1ucezuOTAWDLTqzjlB7x0" KeyPath="yes" Source="$(var.SubFolderSourceDir)\CA-wp4.jpg" />
+            </Component>
+            <Component Id="cmpe5nWrV5Mri8WOEl8vGUFppB4_.Y" Guid="{3A28851B-EF74-4026-AEF0-2CEE348436B6}">
+                <File Id="filfdvv0RT_0ago0uOppEmHws60scQ" KeyPath="yes" Source="$(var.SubFolderSourceDir)\CA-wp5.jpg" />
+            </Component>
+            <Component Id="cmpSlOwW1HdV6X8aNO_ye8XNO4XxQk" Guid="{27606CB6-1E1D-4568-8957-1C4E3E771253}">
+                <File Id="filpxcX9z3PUlJUJMW0AcV55_K8z0M" KeyPath="yes" Source="$(var.SubFolderSourceDir)\CA-wp6.jpg" />
+            </Component>
+            <Component Id="cmpKdiePq_Xs3sS57fppy_FiZm7.Qs" Guid="{DA080CB6-6EAC-4EBC-A5A7-CE2D1D69B682}">
+                <File Id="filuhbozdIBdVfRn1GONHK1WZLlaiM" KeyPath="yes" Source="$(var.SubFolderSourceDir)\f62961400.jpg" />
+            </Component>
+            <Component Id="cmpy9TvF9qsUFpswLIEoimtuUOeJx4" Guid="{0B5B2AFD-F941-4E65-80FB-2134A75D0299}">
+                <File Id="filz3tqxLWSAbCO_BCzs8tIxPkLz7o" KeyPath="yes" Source="$(var.SubFolderSourceDir)\GB-wp1.jpg" />
+            </Component>
+            <Component Id="cmpMzkJomE8TsSolX4Ukn4CNPk1UJg" Guid="{028AE995-0E5F-4589-8873-56BD29FF54AE}">
+                <File Id="filbZZNUTQvJ4MVVYUzq_o_9wzN_w0" KeyPath="yes" Source="$(var.SubFolderSourceDir)\GB-wp2.jpg" />
+            </Component>
+            <Component Id="cmpEV_hOmW2ahTJeQTuk2lPfGl5VO0" Guid="{01949838-85F6-48A5-9255-0AA2B8AAA5F3}">
+                <File Id="filtf0G8XlH7BP5cRcZAQMtVI7NfF8" KeyPath="yes" Source="$(var.SubFolderSourceDir)\GB-wp3.jpg" />
+            </Component>
+            <Component Id="cmp9L6ZbMVih8eWHtBj3UofMZCZ3pc" Guid="{EE285E48-C761-40E2-B7E8-5BDF6A54E3A1}">
+                <File Id="filR7g5xHk7D7YZvnD7WSHi0nrP9rE" KeyPath="yes" Source="$(var.SubFolderSourceDir)\GB-wp4.jpg" />
+            </Component>
+            <Component Id="cmpwxAGuDoNkkTkAd1HSyxiwCnsRSM" Guid="{DAC91B33-A280-4910-B0DB-B6AFF196F8D7}">
+                <File Id="filhmTed4T2x4tzb9JvLEF3OsqI9VQ" KeyPath="yes" Source="$(var.SubFolderSourceDir)\GB-wp5.jpg" />
+            </Component>
+            <Component Id="cmpz6wI9jROBy7t_O0OTfYO8ftNl2o" Guid="{8E88A214-D9BB-4933-B85A-0773865CAAEC}">
+                <File Id="filk.XoMJSQEQrzGovzQ5KX2vwAK2M" KeyPath="yes" Source="$(var.SubFolderSourceDir)\GB-wp6.jpg" />
+            </Component>
+            <Component Id="cmpU2fiY6oVOVdeliyvWetjUkJ3wcw" Guid="{E75C6E14-60BD-4CB9-91D2-B3EFBC55BFE4}">
+                <File Id="filNZvwTX.4LnMuuTQwPBOjhQcipL4" KeyPath="yes" Source="$(var.SubFolderSourceDir)\oboik.ru_22605.jpg" />
+            </Component>
+            <Component Id="cmptnP5rH0MR5HU49dGHq_1aFFqmLs" Guid="{B9C2B715-F59C-4578-8D41-DE078FF4498E}">
+                <File Id="filnqVNiF4YM7qmV7AsL1Bn0VE2BvY" KeyPath="yes" Source="$(var.SubFolderSourceDir)\US-wp1.jpg" />
+            </Component>
+            <Component Id="cmpZv_m5HEa8BcFvh8N8yaMZObH7hs" Guid="{CCF271AD-8F27-488E-841E-58D788C5D6FB}">
+                <File Id="filI0xVLU_iwA4jnjDRbh0Nmi3g7h0" KeyPath="yes" Source="$(var.SubFolderSourceDir)\US-wp2.jpg" />
+            </Component>
+            <Component Id="cmpIavgM12_ZS7NTSPenzTGKYuno4E" Guid="{C309F223-14B3-45F3-8CFC-9CA31B2AA7DB}">
+                <File Id="fil5ZVBIVI.u1V21baIm2LCBslUjJI" KeyPath="yes" Source="$(var.SubFolderSourceDir)\US-wp3.jpg" />
+            </Component>
+            <Component Id="cmp1cyPMYMtdWmq2GOo..HYoHTIAhQ" Guid="{7DA0BDD7-C18E-4395-9D77-70E511198B26}">
+                <File Id="filAKCDyJ.CIC0aow27ACtdK7waZsg" KeyPath="yes" Source="$(var.SubFolderSourceDir)\US-wp4.jpg" />
+            </Component>
+            <Component Id="cmpSjYQmGuDo5BBHQGa.S2AoDga7lg" Guid="{F90F3A75-E46D-49EF-BAE8-458F04DA67C8}">
+                <File Id="filHW60Lyl.eqr4rVTBtqqnJncunnw" KeyPath="yes" Source="$(var.SubFolderSourceDir)\US-wp5.jpg" />
+            </Component>
+            <Component Id="cmp8LYjuQLjiB8mpguToZHSJ46gPkQ" Guid="{E0AC1BAF-A8DA-4751-86F3-6DCF22146872}">
+                <File Id="fil_wuwygsrw93YLgb4qEdSzG5CzWQ" KeyPath="yes" Source="$(var.SubFolderSourceDir)\US-wp6.jpg" />
+            </Component>
+            <Component Id="cmpuUluzgfyeTSxSXKnBXQQEhiHpHE" Guid="{F8021193-C50B-485B-A9FE-DC03BC38C58B}">
+                <File Id="filKD3LRDG88fkvj18dS6QyWhEA7QM" KeyPath="yes" Source="$(var.SubFolderSourceDir)\ZA-wp1.jpg" />
+            </Component>
+            <Component Id="cmpRx00ezUzrm4_nWT3KHYBlC5n6GA" Guid="{284AC233-66BC-48A3-8258-C7CF54539493}">
+                <File Id="film.MqSdDd1exvJkgTI1yNPjDERFA" KeyPath="yes" Source="$(var.SubFolderSourceDir)\ZA-wp2.jpg" />
+            </Component>
+            <Component Id="cmpW.OVy18V.raDYg8aftOGuEFnV0Q" Guid="{FF08FB18-7F57-4B73-9AAA-E9C45F114AEC}">
+                <File Id="filytkg2_bx1iSQYMbCkNSMfr001MQ" KeyPath="yes" Source="$(var.SubFolderSourceDir)\ZA-wp3.jpg" />
+            </Component>
+            <Component Id="cmpawCaX5hNi0XGeSR4B7gI4wZH1kU" Guid="{EBF47864-D606-4F04-BEF0-0052D57FA5D0}">
+                <File Id="filmhUQAmDPo7b7_dLqg0XvSOpane4" KeyPath="yes" Source="$(var.SubFolderSourceDir)\ZA-wp4.jpg" />
+            </Component>
+            <Component Id="cmpCiN.nVuIrzYdLLU0VKxNreIZYYg" Guid="{15A4D6E1-C278-4C4F-ADC4-069A29628CFB}">
+                <File Id="filKGi8x3tbD2lQEQT2ciqySFZifOc" KeyPath="yes" Source="$(var.SubFolderSourceDir)\ZA-wp5.jpg" />
+            </Component>
+            <Component Id="cmp2jqakp_0Yf8ZAq86fET_A74GrPw" Guid="{C81DC3FB-97BD-4072-A90A-18B27A936FCE}">
+                <File Id="filSAAQSWDFQNQh.iRgrKRKO2Twyg4" KeyPath="yes" Source="$(var.SubFolderSourceDir)\ZA-wp6.jpg" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="SubFolderComponents">
+            <ComponentRef Id="cmprELiBV.oljC.iX3HYpYSRHy_3yU" />
+            <ComponentRef Id="cmpC6r24mMV7ztiKwmN_n1H60MsM5E" />
+            <ComponentRef Id="cmpvdQYq6tUswzB45IhlvzqNmkYw5A" />
+            <ComponentRef Id="cmpuL7NRRcwKkg3QqnTIydn7nX.Zog" />
+            <ComponentRef Id="cmpDCcQOEhBHorDa_8BdPxtzUHMX4E" />
+            <ComponentRef Id="cmp6Vp354MGBfR9WYItD3xVroe4DjI" />
+            <ComponentRef Id="cmpdlri0H9CMHks82O16AVEjgZt4gQ" />
+            <ComponentRef Id="cmpEmou8WqvAcRfBlaweuk5Fv6CEtc" />
+            <ComponentRef Id="cmp2dukTZZXuvTV2NylKDobAtIBMX8" />
+            <ComponentRef Id="cmpfSrWI4oKrYiT4c41OlfNyK9LRIs" />
+            <ComponentRef Id="cmpE5dh3Hu4DSEN_lnyGxofbXzk8tI" />
+            <ComponentRef Id="cmp4PYZK.IOuVhWGgpNw_.69fKfkAw" />
+            <ComponentRef Id="cmpe5nWrV5Mri8WOEl8vGUFppB4_.Y" />
+            <ComponentRef Id="cmpSlOwW1HdV6X8aNO_ye8XNO4XxQk" />
+            <ComponentRef Id="cmpKdiePq_Xs3sS57fppy_FiZm7.Qs" />
+            <ComponentRef Id="cmpy9TvF9qsUFpswLIEoimtuUOeJx4" />
+            <ComponentRef Id="cmpMzkJomE8TsSolX4Ukn4CNPk1UJg" />
+            <ComponentRef Id="cmpEV_hOmW2ahTJeQTuk2lPfGl5VO0" />
+            <ComponentRef Id="cmp9L6ZbMVih8eWHtBj3UofMZCZ3pc" />
+            <ComponentRef Id="cmpwxAGuDoNkkTkAd1HSyxiwCnsRSM" />
+            <ComponentRef Id="cmpz6wI9jROBy7t_O0OTfYO8ftNl2o" />
+            <ComponentRef Id="cmpU2fiY6oVOVdeliyvWetjUkJ3wcw" />
+            <ComponentRef Id="cmptnP5rH0MR5HU49dGHq_1aFFqmLs" />
+            <ComponentRef Id="cmpZv_m5HEa8BcFvh8N8yaMZObH7hs" />
+            <ComponentRef Id="cmpIavgM12_ZS7NTSPenzTGKYuno4E" />
+            <ComponentRef Id="cmp1cyPMYMtdWmq2GOo..HYoHTIAhQ" />
+            <ComponentRef Id="cmpSjYQmGuDo5BBHQGa.S2AoDga7lg" />
+            <ComponentRef Id="cmp8LYjuQLjiB8mpguToZHSJ46gPkQ" />
+            <ComponentRef Id="cmpuUluzgfyeTSxSXKnBXQQEhiHpHE" />
+            <ComponentRef Id="cmpRx00ezUzrm4_nWT3KHYBlC5n6GA" />
+            <ComponentRef Id="cmpW.OVy18V.raDYg8aftOGuEFnV0Q" />
+            <ComponentRef Id="cmpawCaX5hNi0XGeSR4B7gI4wZH1kU" />
+            <ComponentRef Id="cmpCiN.nVuIrzYdLLU0VKxNreIZYYg" />
+            <ComponentRef Id="cmp2jqakp_0Yf8ZAq86fET_A74GrPw" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

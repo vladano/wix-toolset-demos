@@ -1,0 +1,28 @@
+﻿<Project Sdk="WixToolset.Sdk/5.0.0">
+  <!--<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' " />-->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DefineConstants>SubFolderSourceDir=NaturePictures</DefineConstants>
+  </PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+		<DefineConstants>SubFolderSourceDir=NaturePictures</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+    <PackageReference Include="WixToolset.Heat" Version="5.0.0" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.UI.wixext" Version="5.0.0" />
+  </ItemGroup>
+  <!-- Before build -->
+  <Import Project="Sdk.targets" Sdk="WixToolset.Sdk" Version="5.0.0" />
+  <Target Name="BeforeBuild">
+    <HeatDirectory OutputFile="SubFolder.wxs" 
+				   DirectoryRefId="SubFolderDir" 
+				   ComponentGroupName="SubFolderComponents" 
+				   SuppressCom="true" 
+				   Directory="$(ProjectDir)NaturePictures" 
+				   SuppressFragments="true" SuppressRegistry="true" 
+				   SuppressRootDirectory="true" 
+				   AutoGenerateGuids="false" 
+				   GenerateGuidsNow="true" 
+				   PreprocessorVariable="var.SubFolderSourceDir" />
+  </Target>
+</Project>

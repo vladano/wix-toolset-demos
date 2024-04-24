@@ -1,0 +1,18 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+    <Fragment>
+        <DirectoryRef Id="SubFolder2Dir">
+            <Component Id="cmp9NrbfNfHVCb05NYl6bhVO146c1k" Guid="{BE6559ED-8D1F-4AEE-951E-F12BA22209F9}">
+                <File Id="fil3vW1FPOvCIzHSnEeCKhmLJOvCWU" KeyPath="yes" Source="$(var.SubFolder2SourceDir)\File1_2.txt" />
+            </Component>
+            <Component Id="cmptH6O4ZcapGdr1DxfhqIQoudD_cg" Guid="{DC6C254D-9C2C-41D1-BB8F-FDEDB3BD6EBC}">
+                <File Id="filbS.Ulq1KPr1mupcPrcp.DfkLBuI" KeyPath="yes" Source="$(var.SubFolder2SourceDir)\File2_2.txt" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="SubFolder2Components">
+            <ComponentRef Id="cmp9NrbfNfHVCb05NYl6bhVO146c1k" />
+            <ComponentRef Id="cmptH6O4ZcapGdr1DxfhqIQoudD_cg" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

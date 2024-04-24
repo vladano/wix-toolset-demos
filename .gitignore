@@ -16,6 +16,14 @@
 # Mono auto generated files
 mono_crash.*
 
+# Word docx documentation file
+*.docx
+# Maven Java
+*/target/
+*.jar
+# Installation folder
+*/apptoinstall/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

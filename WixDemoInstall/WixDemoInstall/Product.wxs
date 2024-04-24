@@ -1,0 +1,154 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+  <Package Name="Wix Demo 1.0" 
+		   Language="1033" 
+		   Version="1.0.0.0" 
+		   Manufacturer="VladanO" 
+		   UpgradeCode="{50816069-0B88-4304-B2BC-BB1F8C2CF80B}" 
+		   InstallerVersion="200" 
+		   ProductCode="{064D790D-6A4F-4626-89F7-A8022EE847EA}">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+	  
+    <MediaTemplate EmbedCab="yes" />
+
+	  <!-- End-User License Agreement screen-->
+	  <WixVariable Id="WixUILicenseRtf" Value="extras/License.rtf" />
+
+	  <!-- Sceen Choose Setup Type: Typical, Cutom, Complete -->
+	  <ui:WixUI Id="WixUI_Mondo" />
+
+	  <!-- Like WixUI_Mondo WITHOUT Setup Type: Typical, Cutom, Complete  -->
+	  <!--<ui:WixUI Id="WixUI_FeatureTree" />-->
+
+	<Feature Id="ProgramMenu" Title="Program Menu" Level="1" Description="Create a folder group in the start menu.">
+      <ComponentRef Id="ProgramMenuComponent" />
+    </Feature>
+
+    <Feature Id="DesktopShortcut" Title="Desktop Shortcut" Level="1" Description="Place a shortcut on the desktop.">
+      <ComponentRef Id="DesktopShortcutComponent" />
+    </Feature>
+
+    <!-- Core "Application" components -->
+    <Feature Id="Complete" 
+			 Title="Wix Demo 1.0" 
+			 Description="Install all components." 
+			 Display="expand" 
+			 Level="1" 
+			 ConfigurableDirectory="INSTALLFOLDER" 
+			 AllowAbsent="no">
+      
+      <Feature Id="ImgFeature" Title="Nature Images" Description="jpg images of nature" Level="1" AllowAbsent="no">
+        <ComponentGroupRef Id="ImgComponent" />
+	  </Feature>
+
+	  <Feature Id="BookFeature" Title="William Shakespeare Books" Description="The Complete Works of William Shakespeare by William Shakespeare" Level="3">
+        <ComponentGroupRef Id="BookComponent" />
+      </Feature>
+
+	  <Feature Id="SubFolderFeature" Title="SubFolder Feature" Level="1">
+		<ComponentGroupRef Id="SubFolderComponents" />
+	  </Feature>
+
+	</Feature>
+
+	<UIRef Id="WixUI_ErrorProgressText" />
+  </Package>
+
+  <!-- Directory structure -->
+  <Fragment>
+      <StandardDirectory Id="ProgramFilesFolder">
+        <!--<Directory Id="INSTALLFOLDER" Name="WixDemo" />-->
+		<Directory Id="INSTALLFOLDER" Name="WixDemo">
+			<Directory Id="SubFolderDir" Name="NaturePictures" />
+		</Directory>
+	  </StandardDirectory>
+
+      <StandardDirectory Id="ProgramMenuFolder">
+        <Directory Id="ProgramMenuDir" Name="Wix Demo" />
+      </StandardDirectory>
+      
+      <StandardDirectory Id="DesktopFolder" />
+    </Fragment>
+
+	<!-- Start Menu shortcut -->
+  <Fragment>
+    <Component Id="ProgramMenuComponent" Directory="ProgramMenuDir">
+		
+      <Shortcut Id="ProgramMenuShortcut" 
+				Name="Wix Demo - NaturePictures folder" 
+				Description="Open an folder of nature images." 
+				Directory="ProgramMenuDir" Target="[INSTALLFOLDER]NaturePictures" 
+				WorkingDirectory="INSTALLFOLDER" />
+
+		<Shortcut Id="ProgramMenuShortcut1" 
+				  Name="Wix Demo - Tropical Island" Description="Opens an image of a tropical island." Directory="ProgramMenuDir" Target="[INSTALLFOLDER]tropical_island.jpg" 
+				  WorkingDirectory="INSTALLFOLDER" />
+
+		<Shortcut Id="ProgramMenuShortcut2"
+				  Name="Wix Demo - William_Shakespeare"
+				  Description="Open William Shakespeare Books"
+				  Directory="ProgramMenuDir" Target="[INSTALLFOLDER]William_Shakespeare.txt"
+				  WorkingDirectory="INSTALLFOLDER" />
+
+		<RemoveFolder Id="ProgramMenuComponent" On="uninstall" />
+		
+      <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" KeyPath="yes" />
+    </Component>
+  </Fragment>
+  
+  <!-- Desktop shortcut -->
+  <Fragment>
+    <Component Id="DesktopShortcutComponent" Directory="DesktopFolder">
+
+		<Shortcut Id="DesktopShortcut"
+				  Name="Wix Demo - Tropical Island" 
+				  Description="Opens an image of a tropical island." 
+				  Directory="DesktopFolder" 
+				  Target="[INSTALLFOLDER]tropical_island.jpg"
+				  WorkingDirectory="INSTALLFOLDER" />
+
+		<Shortcut Id="DesktopShortcut1"
+				  Name="Wix Demo - NaturePictures folder"
+				  Description="Open an folder of nature images."
+				  Directory="DesktopFolder" Target="[INSTALLFOLDER]NaturePictures"
+				  WorkingDirectory="INSTALLFOLDER" />
+
+		<Shortcut Id="DesktopShortcut2"
+				  Name="Wix Demo - William_Shakespeare"
+				  Description="Open William Shakespeare Books"
+				  Directory="DesktopFolder" Target="[INSTALLFOLDER]William_Shakespeare.txt"
+				  WorkingDirectory="INSTALLFOLDER" />
+
+
+		<RegistryValue Root="HKCU" Key="Software\VladanO\Wix Sample Application" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+		
+    </Component>
+  </Fragment>
+
+  <!-- Picture of nature -->
+  <Fragment>
+    <ComponentGroup Id="ImgComponent" Directory="INSTALLFOLDER">
+      <Component Id="Nature">
+        <!--<File Id="GoatImg" Name="goat.jpg" DiskId="1" Source="goat.jpg" KeyPath="yes" />-->
+		  <File Id="TropicalIslandImg" Name="tropical_island.jpg" DiskId="1" Source="tropical_island.jpg" KeyPath="yes" />
+	  </Component>
+    </ComponentGroup>
+  </Fragment>
+
+  <!-- 335 by William Shakespeare via https://www.gutenberg.org/ebooks/100 -->
+  <Fragment>
+    <ComponentGroup Id="BookComponent" Directory="INSTALLFOLDER">
+      <Component Id="335 by William Shakespeare">
+        <File Id="WilliamShakespeareBook" Name="William_Shakespeare.txt" DiskId="1" Source="William_Shakespeare.txt" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+	<!-- NaturePictures -->
+	<!--<Fragment>
+		<ComponentGroup Id="NaturePictures" Directory="INSTALLFOLDER">
+		...			
+		</ComponentGroup>
+	</Fragment>-->
+	
+</Wix>

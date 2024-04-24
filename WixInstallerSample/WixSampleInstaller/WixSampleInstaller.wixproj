@@ -1,0 +1,75 @@
+﻿
+<Project Sdk="WixToolset.Sdk/5.0.0">
+	
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DefineConstants>SubFolder1SourceDir=SoftwareToInstall\SubFolder1;SubFolder2SourceDir=SoftwareToInstall\SubFolder2</DefineConstants>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Folder Include="SoftwareToInstall\" />
+    <Folder Include="SoftwareToInstall\SubFolder1\" />
+    <Folder Include="SoftwareToInstall\SubFolder2\" />
+    <Folder Include="StaticFiles\" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Content Include="SoftwareToInstall\SubFolder1\File1_1.txt" />
+    <Content Include="SoftwareToInstall\SubFolder1\File2_1.txt" />
+    <Content Include="SoftwareToInstall\SubFolder2\File1_2.txt" />
+    <Content Include="SoftwareToInstall\SubFolder2\File2_2.txt" />
+    <Content Include="StaticFiles\background.png" />
+    <Content Include="StaticFiles\banner.png" />
+    <Content Include="StaticFiles\license.rtf" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Heat" Version="5.0.0" />
+    <PackageReference Include="WixToolset.UI.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="5.0.0" />
+  </ItemGroup>
+	
+  <!--<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="&quot;C:\Program Files (x86)\WiX Toolset v3.14\bin\heat.exe&quot; dir &quot;$(SolutionDir)WixSampleInstaller\SoftwareToInstall\SubFolder1&quot; -dr SubFolder1Dir -cg SubFolder1Components -gg -g1 -sf -srd -var &quot;var.SubFolder1SourceDir&quot; -out &quot;$(SolutionDir)WixSampleInstaller\SubFolder1.wxs&quot;&#xA;&quot;C:\Program Files (x86)\WiX Toolset v3.14\bin\heat.exe&quot; dir &quot;$(SolutionDir)WixSampleInstaller\SoftwareToInstall\SubFolder2&quot; -dr SubFolder2Dir -cg SubFolder2Components -gg -g1 -sf -srd -var &quot;var.SubFolder2SourceDir&quot; -out &quot;$(SolutionDir)WixSampleInstaller\SubFolder2.wxs&quot;" />
+  </Target>-->
+	<!-- OK - Old way to get content of folders -->
+	<!--<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="&quot;C:\Program Files (x86)\WiX Toolset v5.0\bin\x86\heat.exe&quot; dir &quot;$(SolutionDir)WixSampleInstaller\SoftwareToInstall\SubFolder1&quot; -dr SubFolder1Dir -cg SubFolder1Components -gg -g1 -sf -srd -var &quot;var.SubFolder1SourceDir&quot; -out &quot;$(SolutionDir)WixSampleInstaller\SubFolder1.wxs&quot;&#xA;&quot;C:\Program Files (x86)\WiX Toolset v5.0\bin\x86\heat.exe&quot; dir &quot;$(SolutionDir)WixSampleInstaller\SoftwareToInstall\SubFolder2&quot; -dr SubFolder2Dir -cg SubFolder2Components -gg -g1 -sf -srd -var &quot;var.SubFolder2SourceDir&quot; -out &quot;$(SolutionDir)WixSampleInstaller\SubFolder2.wxs&quot;" />
+  </Target>-->
+	
+
+	<!-- Before build -->
+	<Import Project="Sdk.targets" Sdk="WixToolset.Sdk" Version="5.0.0" />
+	<Target Name="BeforeBuild">
+		<!-- Harvest file components from publish folder - OK - NEW way to get content of folders-->
+		<HeatDirectory OutputFile="SubFolder1.wxs"
+					   DirectoryRefId="SubFolder1Dir"
+					   ComponentGroupName="SubFolder1Components"
+					   SuppressCom="true"
+					   Directory="$(SolutionDir)WixSampleInstaller\SoftwareToInstall\SubFolder1"
+					   SuppressFragments="true"
+					   SuppressRegistry="true"
+					   SuppressRootDirectory="true"
+					   AutoGenerateGuids="false"
+					   GenerateGuidsNow="true"
+					   ToolPath="$(WixToolPath)"
+				       PreprocessorVariable="var.SubFolder1SourceDir" />
+		<HeatDirectory OutputFile="SubFolder2.wxs"
+					   DirectoryRefId="SubFolder2Dir"
+					   ComponentGroupName="SubFolder2Components"
+					   SuppressCom="true"
+					   Directory="$(SolutionDir)WixSampleInstaller\SoftwareToInstall\SubFolder2"
+					   SuppressFragments="true"
+					   SuppressRegistry="true"
+					   SuppressRootDirectory="true"
+					   AutoGenerateGuids="false"
+					   GenerateGuidsNow="true"
+				       PreprocessorVariable="var.SubFolder2SourceDir" />
+	</Target>
+	
+	<!--<Target Name="AfterBuild">-->
+		<!-- Rename and move final MSI -->
+		<!--<Exec Command="if not exist Installs mkdir Installs" />
+		<Exec Command="move bin\$(Configuration)\$(OutputName).msi Installs\ConsoleApp-%(AssemblyVersion.Version)-$(Configuration)-$(Platform).msi" />
+	</Target>-->
+
+</Project>
