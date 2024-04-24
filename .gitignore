@@ -22,7 +22,7 @@ mono_crash.*
 */target/
 *.jar
 # Installation folder
-*/apptoinstall/
+apptoinstall/*
 
 # Build results
 [Dd]ebug/
