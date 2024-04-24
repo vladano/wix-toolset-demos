@@ -1,6 +1,4 @@
-# wix-toolset-demos
-
-## Wix toolset demo projects
+# Wix toolset demo projects
 
 1. Build Maven project inside folder TicTacToeMaven
    1.1 Build project inside folder WixInstDotNetCoreAndJava - install Java app - install .NET Core app
