@@ -6,7 +6,7 @@ Any human player ("X") can challenge the computer ("0") to a game. Currently the
 
 The modular object design follows the MVC design pattern and the Single Responsibility Principle. Notice that the GameEngine (Controller), Rail and Tile classes (Model) are not dependent on the GameWindow (View / GUI) or startup classes. That means that the game can use different pluggable UI classes without modifying the Controller or Model classes.
 
-## Prerequisite:
+Prerequisite:
 Apache Maven
 JRE
 
