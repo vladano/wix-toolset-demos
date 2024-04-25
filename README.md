@@ -1,8 +1,8 @@
 # Wix toolset demo projects
 
-1.Build Maven project inside folder TicTacToeMaven
+1. Build Maven project inside folder TicTacToeMaven
   - This is a Java/Mavenized version of the popular classic game Tic-Tac-Toe.
-2.Build project inside folder WixInstDotNetCoreAndJava 
+2. Build project inside folder WixInstDotNetCoreAndJava 
     - Build .msi installtion file that installs .NET Core with ALL files for .NET CORE and Java .jar file from previous step (1.1).
 
 3. Build Wix toolset project inside folder WixInstallerSample
