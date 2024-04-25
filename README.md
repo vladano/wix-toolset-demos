@@ -1,17 +1,19 @@
 # Wix toolset demo projects
 
-1. Build Maven project inside folder TicTacToeMaven
-   1.1 Build project inside folder WixInstDotNetCoreAndJava - install Java app - install .NET Core app
+1.1 Build Maven project inside folder TicTacToeMaven
+    - This is a Java/Mavenized version of the popular classic game Tic-Tac-Toe.
+1.2 Build project inside folder WixInstDotNetCoreAndJava 
+    - Build .msi installtion file that installs .NET Core with ALL files for .NET CORE and Java .jar file from previous step (1.1).
 
 2. Build Wix toolset project inside folder WixInstallerSample
-
-   - install all files found inside folder WixSampleInstaller\SoftwareToInstall
+   - Build .msi installtion file that demonstarate Old and NEW way to dimaicaly create struture of files inside installation folder (folder "SoftwareToInstall"). All inside this folder will be automatically pack to .msi generated installation file and install to installation folder during install.
 
 3. Build Wix toolset project inside folder WixDemoInstall
-   - install file tropical_island.jpg
-   - install file William_Shakespeare.txt
-   - install all files found inside folder WixDemoInstall\NaturePictures
+   - Build .msi installtion file that installs the defined files and all files in the defined installation folder.
 
 4. Build Wix toolset project inside folder ExampleWindowsService
-   - install service named ExampleService on destination Windows computer 
+   - Build .msi installtion file that installation application as Windows service on destination computer.
+
+5. Build Wix toolset project inside folder WixIISAppInstall
+   - Build .msi installtion file that install demo web site on Windows IIS server.
    
