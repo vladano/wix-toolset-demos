@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Define the variables in "$(var.*) expressions" -->
+<?define Name = "ExampleService" ?>
+<?define Manufacturer = "VladanO" ?>
+<?define Version = "1.0.0.0" ?>
+<?define UpgradeCode = "9ED3FF33-8718-444E-B44B-69A2344B7E98" ?>
+
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package Name="$(Name)"
+           Manufacturer="$(Manufacturer)"
+           Version="$(Version)"
+           UpgradeCode="$(var.UpgradeCode)"
+           Compressed="true">
+
+    <!-- Allow upgrades and prevent downgrades -->
+    <MajorUpgrade DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit." />
+
+    <MediaTemplate EmbedCab="yes" />
+
+	  <!-- Define the directory structure -->
+    <Directory Id="TARGETDIR" Name="SourceDir">
+		
+      <Directory Id="ProgramFilesFolder">
+
+        <!-- Create a folder inside program files -->
+        <!--<Directory Id="ROOTDIRECTORY" Name="$(var.Manufacturer)">-->
+          <!-- Create a folder within the parent folder given the name -->
+          <!--<Directory Id="INSTALLFOLDER" Name="$(Name)" />
+        </Directory>-->
+	    <Directory Id="INSTALLFOLDER" Name="$(Name)" />
+
+	  </Directory>
+	
+    </Directory>
+
+	  
+    <!-- The files inside this DirectoryRef are linked to
+             the App.WindowsService directory via INSTALLFOLDER -->
+    <DirectoryRef Id="INSTALLFOLDER">
+
+		<Component Id="startsrv.cmd" Guid="{D806BEAD-0230-42B4-B014-92B6A109DA3B}">
+			<File Id="startsrv.cmd" KeyPath="yes" Source="WinServiceCmd\startsrv.cmd" />
+		</Component>
+		<Component Id="restartsrv.cmd" Guid="{62CA5889-C738-4693-A1DC-ECE966380DAE}">
+			<File Id="restartsrv.cmd" Source="WinServiceCmd\restartsrv.cmd" KeyPath="yes"  />
+		</Component>
+		<Component Id="stopsrv.cmd" Guid="{685E42DD-A49C-4061-8384-E7CD043990DB}">
+			<File Id="stopsrv.cmd" Source="WinServiceCmd\stopsrv.cmd" KeyPath="yes"  />
+		</Component>
+
+		<!-- Create a single component which is the App.WindowsService.exe file -->
+      <Component Id="ServiceExecutable" Bitness="always32">
+
+        <!-- Copies the App.WindowsService.exe file using the
+                     project reference preprocessor variables -->
+        <!--<File Id="ExampleWindowsService.exe"
+              Source="C:\Users\Damia\source\repos\ExampleWindowsService\ExampleWindowsService\bin\Debug\ExampleWindowsService.exe"
+              KeyPath="true" />-->
+		
+		  <File Id="ExampleWindowsService.exe"
+			Source="..\ExampleWindowsService\bin\Debug\ExampleWindowsService.exe"
+			KeyPath="true" />
+
+		  <!-- Remove all files from the INSTALLFOLDER on uninstall -->
+        <RemoveFile Id="ALLFILES" Name="*.*" On="both" />
+
+        <!-- Tell WiX to install the Service -->
+        <ServiceInstall Id="ServiceInstaller"
+                        Type="ownProcess"
+                        Name="ExampleWindowsService"
+                        DisplayName="$(Name)"
+                        Description="A service that performs and logs factorial of 100."
+                        Start="auto"
+                        ErrorControl="normal" />
+
+        <!-- Tell WiX to start the Service -->
+        <ServiceControl Id="StartService"
+                        Start="install"
+                        Stop="both"
+                        Remove="uninstall"
+                        Name="ExampleWindowsService"
+                        Wait="true" />
+      </Component>
+
+	</DirectoryRef>
+
+    <!-- Tell WiX to install the files -->
+    <Feature Id="Service" Title="ExampleWindowsService Setup" Level="1">
+      <ComponentRef Id="ServiceExecutable" />
+	  <ComponentRef Id="startsrv.cmd" />
+	  <ComponentRef Id="stopsrv.cmd" />
+	  <ComponentRef Id="restartsrv.cmd" />
+	</Feature>
+
+	  <!--<Fragment>
+		  <DirectoryRef Id="INSTALLFOLDER">
+			  <Component Id="startsrv.cmd" Guid="{33D829E2-A055-4B9B-9205-B231AEBCD0EF}">
+				  <File Id="startsrv.cmd" KeyPath="yes" Source="WinServiceCmd\startsrv.cmd" />
+			  </Component>
+			  <Component Id="restartsrv.cmd" Guid="{33D829E2-A055-4B9B-9205-B231AEBCD0EF}">
+				  <File Id="restartsrv.cmd" Source="WinServiceCmd\restartsrv.cmd" KeyPath="yes"  />
+			  </Component>
+			  <Component Id="stopsrv.cmd" Guid="{33D829E2-A055-4B9B-9205-B231AEBCD0EF}">
+				  <File Id="stopsrv.cmd" Source="WinServiceCmd\stopsrv.cmd" KeyPath="yes"  />
+			  </Component>
+		  </DirectoryRef>
+	  </Fragment>-->
+
+  </Package>
+</Wix>

@@ -11,3 +11,7 @@
    - install file tropical_island.jpg
    - install file William_Shakespeare.txt
    - install all files found inside folder WixDemoInstall\NaturePictures
+
+4. Build Wix toolset project inside folder ExampleWindowsService
+   - install service named ExampleService on destination Windows computer 
+   

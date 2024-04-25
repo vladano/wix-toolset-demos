@@ -1,0 +1,2 @@
+net start ExampleService
+pause
