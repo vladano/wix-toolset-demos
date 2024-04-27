@@ -20,10 +20,12 @@
 
 	  <!-- Define the directory structure -->
     <Directory Id="TARGETDIR" Name="SourceDir">
-		
-      <Directory Id="ProgramFilesFolder">
 
-        <!-- Create a folder inside program files -->
+		<!--<Directory Id="ProgramFilesFolder">-->
+		<Directory Id="ProgramFiles64Folder"> 
+		<!-- <Directory Id="StandardDirectory"> -->
+
+			<!-- Create a folder inside program files -->
         <!--<Directory Id="ROOTDIRECTORY" Name="$(var.Manufacturer)">-->
           <!-- Create a folder within the parent folder given the name -->
           <!--<Directory Id="INSTALLFOLDER" Name="$(Name)" />
@@ -39,7 +41,7 @@
              the App.WindowsService directory via INSTALLFOLDER -->
     <DirectoryRef Id="INSTALLFOLDER">
 
-		<Component Id="startsrv.cmd" Guid="{D806BEAD-0230-42B4-B014-92B6A109DA3B}">
+		<Component Id="startsrv.cmd" Guid="{75693B45-19D4-4262-A309-5E3D272E9AA5}">
 			<File Id="startsrv.cmd" KeyPath="yes" Source="WinServiceCmd\startsrv.cmd" />
 		</Component>
 		<Component Id="restartsrv.cmd" Guid="{62CA5889-C738-4693-A1DC-ECE966380DAE}">
@@ -50,9 +52,10 @@
 		</Component>
 
 		<!-- Create a single component which is the App.WindowsService.exe file -->
-      <Component Id="ServiceExecutable" Bitness="always32">
+      <!--<Component Id="ServiceExecutable" Bitness="always32">-->
+		<Component Id="ServiceExecutable" Bitness="always64">
 
-        <!-- Copies the App.WindowsService.exe file using the
+			<!-- Copies the App.WindowsService.exe file using the
                      project reference preprocessor variables -->
         <!--<File Id="ExampleWindowsService.exe"
               Source="C:\Users\Damia\source\repos\ExampleWindowsService\ExampleWindowsService\bin\Debug\ExampleWindowsService.exe"
@@ -61,7 +64,11 @@
 		  <File Id="ExampleWindowsService.exe"
 			Source="..\ExampleWindowsService\bin\Debug\ExampleWindowsService.exe"
 			KeyPath="true" />
+		  <!--<File Id="ExampleWindowsService.exe"
+			Source="..\ExampleWindowsService\bin\x64\Debug\ExampleWindowsService.exe"
+			KeyPath="true" />-->
 
+		  
 		  <!-- Remove all files from the INSTALLFOLDER on uninstall -->
         <RemoveFile Id="ALLFILES" Name="*.*" On="both" />
 

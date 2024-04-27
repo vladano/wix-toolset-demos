@@ -1,10 +1,10 @@
 ﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
     <Fragment>
         <DirectoryRef Id="SubFolder2Dir">
-            <Component Id="cmp9NrbfNfHVCb05NYl6bhVO146c1k" Guid="{BE6559ED-8D1F-4AEE-951E-F12BA22209F9}">
+            <Component Id="cmp9NrbfNfHVCb05NYl6bhVO146c1k" Guid="{05E0FD59-C95F-49A7-8DCA-118C36476E64}">
                 <File Id="fil3vW1FPOvCIzHSnEeCKhmLJOvCWU" KeyPath="yes" Source="$(var.SubFolder2SourceDir)\File1_2.txt" />
             </Component>
-            <Component Id="cmptH6O4ZcapGdr1DxfhqIQoudD_cg" Guid="{DC6C254D-9C2C-41D1-BB8F-FDEDB3BD6EBC}">
+            <Component Id="cmptH6O4ZcapGdr1DxfhqIQoudD_cg" Guid="{E0B73291-9827-4017-8E12-1C798BF411DA}">
                 <File Id="filbS.Ulq1KPr1mupcPrcp.DfkLBuI" KeyPath="yes" Source="$(var.SubFolder2SourceDir)\File2_2.txt" />
             </Component>
         </DirectoryRef>

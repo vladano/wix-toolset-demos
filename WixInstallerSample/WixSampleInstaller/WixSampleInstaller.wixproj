@@ -38,7 +38,6 @@
 	
 
 	<!-- Before build -->
-	<Import Project="Sdk.targets" Sdk="WixToolset.Sdk" Version="5.0.0" />
 	<Target Name="BeforeBuild">
 		<!-- Harvest file components from publish folder - OK - NEW way to get content of folders-->
 		<HeatDirectory OutputFile="SubFolder1.wxs"
