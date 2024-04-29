@@ -1,0 +1,18 @@
+﻿<Project Sdk="WixToolset.Sdk/5.0.0">
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Util.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.UI.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.Heat" Version="5.0.0" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy $(TargetPath) $(SolutionDir)\Installs\$(ProjectName)-$(PlatformName).msi" />
+  </Target>
+  <!-- Before build -->
+  <!--
+	<Target Name="AfterBuild">
+		<Exec Command="if not exist ..\Installs mkdir ..\Installs" />
+		<Exec Command="dir .\bin\$(Platform)\$(Configuration)\en-US\$(OutputName).msi" />
+		<Exec Command="move .\bin\$(Platform)\$(Configuration)\en-US\$(OutputName).msi ..\Installs1\TicTacToe-$(Configuration)-$(Platform).msi" />
+	</Target>
+	-->
+</Project>

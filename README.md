@@ -1,12 +1,11 @@
 # Wix toolset demo projects
 
-1. Build Maven project inside folder TicTacToeMaven
-
-- This is a Java/Mavenized version of the popular classic game Tic-Tac-Toe.
+1. Build solution inside WixInstallerJava folder
+- This Wix project show how to install java application from .jar fajl and how create application shortcut to start java application inside .jar file on Windows platform.
 
 2. Build project inside folder WixInstDotNetCoreAndJava
 
-   - Build .msi installtion file that installs .NET Core with ALL files for .NET CORE and Java .jar file from previous step (1.1).
+   - Build .msi installtion file that installs .NET Core with ALL files for .NET CORE and Java .jar file.
 
 3. Build Wix toolset project inside folder WixInstallerSample
 
@@ -22,6 +21,15 @@
 
 6. Build Wix toolset project inside folder WixIISAppInstall
    - Build .msi installtion file that install demo web site on Windows IIS server.
+
+   - The first demo show how to install demo web site on Windows IIS serve using Wix toolset.
+	 Demo inside folder "Setup" create .msi installer that install "WebHelloWorld" web application on IIS server on port 8081.
+     Note:
+     There is no any installation sreen during installation.
+
+   - The second demo inside folder "SetupNew" create .msi installer that install "WebHelloWorld" web application on IIS server on choosen port during installation.
+     Note:
+     This .msi installatio demonstarate how to use "custom screen" inside installer to enter port number on what IIS web application will start.
 
 ## Note:
 

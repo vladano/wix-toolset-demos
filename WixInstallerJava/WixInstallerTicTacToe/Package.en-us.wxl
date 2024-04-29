@@ -1,0 +1,27 @@
+﻿<!--
+This file contains the declaration of all the localizable strings.
+-->
+<WixLocalization xmlns="http://wixtoolset.org/schemas/v4/wxl" Culture="en-US">
+
+  <String Id="DowngradeError" Value="A newer version of [ProductName] is already installed." />
+
+	<String Id="Company" Value="VladanO" />
+
+	<String Id="Name" Value="TicTacToe" />
+	<String Id="ProductNameFolder" Value="TicTacToe" />
+
+	<String Id="ProductName_x86" Value="TicTacToe Java App (32bit)" />
+	<String Id="ProductName_x64" Value="TicTacToe Java App (64bit)" />
+
+	<String Id="Description" Value="This is a description" />
+	
+	<String Id="Comments" Value="Some comment" />
+	
+	<!--<String Id="Keywords" Value="dotnet,core,application,installer" />-->
+	<String Id="Keywords" Value="java,application,installer" />
+
+	<!--<String Id="DowngradeErrorMessage" Value="A newer version of TicTacToeJava_NetCore App is already installed." />-->
+
+	<String Id="Language" Value="1033" />
+
+</WixLocalization>

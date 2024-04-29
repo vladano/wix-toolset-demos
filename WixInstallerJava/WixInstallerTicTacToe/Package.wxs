@@ -1,0 +1,75 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" 
+	 xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+	
+  <Package Name="WixInstallerTicTacToe" 
+		   Manufacturer="VladanO" 
+		   Version="1.0.0.0" 
+		   UpgradeCode="4958f8b7-3cda-47de-9b8c-81fefeb93ad3">
+
+	  <!-- Provide package details -->
+	  <SummaryInformation Manufacturer="!(loc.Company)" 
+						  Description="!(loc.Description)" 
+						  Keywords="!(loc.Keywords)" />
+
+	  <!-- Downgrade error message -->
+	  <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
+
+	  <!-- Include .cab file into .msi file -->
+	  <MediaTemplate EmbedCab="yes" />
+
+	<!-- Define main app icon -->
+	<Icon Id="icon.ico" SourceFile="app.ico" />
+
+	<!-- Use the icon.ico icon for this installer (shows up in Add/Remove programs) -->
+	<Property Id="ARPPRODUCTICON" Value="icon.ico" />
+
+	  <!-- Help/Support website (shows in the Add/Remove programs) -->
+	  <Property Id="ARPURLINFOABOUT" Value="https://github.com/vladano" />
+
+	  <!-- End-User License Agreement screen-->
+	<!--<WixVariable Id="WixUILicenseRtf" Value="extras/License.rtf" />-->
+
+	<!-- End-User License Agreement screen-->
+	<!--<WixVariable Id="WixUILicenseRtf" Value="extras/License.rtf" />-->
+
+	<!-- Sceen Choose Setup Type: Typical, Cutom, Complete -->
+	<!--<ui:WixUI Id="WixUI_Mondo" />-->
+	<!-- Like WixUI_Mondo WITHOUT Setup Type: Typical, Cutom, Complete  -->
+	<!--<ui:WixUI Id="WixUI_FeatureTree" />-->
+	<!-- Create a basic UI for the installer -->
+	<!--<ui:WixUI Id="WixUI_Minimal" />-->
+	<!--<ui:WixUI Id="WixUI_Advanced" />-->
+
+	<ui:WixUI Id="WixUI_InstallDir" />
+
+	<!--Custom UI for installer-->
+	<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+
+	<!-- Change the installer UI background images -->
+	<WixVariable Id="WixUILicenseRtf" Value="$(var.ProjectDir)\Assets\License.rtf" />
+	<WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)\Assets\Background.bmp" />
+	<WixVariable Id="WixUIBannerBmp" Value="$(var.ProjectDir)\Assets\Banner.bmp" />
+
+	<!--<Feature Id="Main">
+      <ComponentGroupRef Id="ExampleComponents" />
+    </Feature>-->
+	  
+	<!-- Define components, shortcuts, files etc... for installer -->
+    <Feature Id="ProductFeature" Title="TicTacToe" Level="1">
+		
+	  <!--<ComponentGroupRef Id="ProductComponents" />-->
+	  <!--<ComponentGroupRef Id="PublishedComponents" />-->
+		
+		<!--Main application executable component-->
+		<ComponentGroupRef Id="ProductComponents" />
+		
+		<!--Main application shortcut for Program Menu-->
+		<ComponentRef Id="ApplicationShortcut" />
+		
+		<!--Desktop shortcut-->
+		<ComponentGroupRef Id="ComponentGroupDesktopShortcut" />
+	</Feature>
+
+  </Package>
+	
+</Wix>

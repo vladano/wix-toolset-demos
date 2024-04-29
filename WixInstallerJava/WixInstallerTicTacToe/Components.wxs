@@ -1,0 +1,112 @@
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+	
+  <Fragment>
+	  
+    <!--<ComponentGroup Id="ExampleComponents" Directory="INSTALLFOLDER">
+      <Component>
+        <File Source="ExampleComponents.wxs" />
+      </Component>
+    </ComponentGroup>-->
+
+	  <!--<DirectoryRef Id="INSTALLFOLDER" FileSource=".\bin\$(var.Platform)\$(var.Configuration)\en-US.0\">-->
+
+
+	  <!--<StandardDirectory Id="ProgramFilesFolder">-->
+		  
+		  <!-- Create a folder inside program files with Company Name-->
+		  <!--<Directory Id="ROOTDIRECTORY" Name="!(loc.Company)">-->
+			  <!-- Create a folder inside Company Name folder with Product Name-->
+			  <!--<Directory Id="INSTALLFOLDER" Name="!(loc.Name)">-->
+				  <!--<StandardDirectory Id="DesktopFolder" />-->
+			  <!--</Directory>
+		  </Directory>
+		  
+	  </StandardDirectory>-->
+	  
+	  <!--Create application folder in Program Menu-->
+	  <StandardDirectory Id="ProgramMenuFolder">
+		  
+		  <Directory Id="ApplicationProgramsFolder" Name="!(loc.Name)" />
+		  
+	  </StandardDirectory>
+
+	  <!--ComponentGroup refering to install component in INSTALLFOLDER Directory-->
+	  <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+		  
+		  <!--Main Component with Sample Application executable path-->
+		  <Component Id="TicTacToe.jar">
+			  <File Id="TicTacToe.jar" 
+					Name="TicTacToe-1.1.0.jar" 
+					Source=".\..\TicTacToeMaven\target\TicTacToe-1.1.0.jar" />
+		      <!-- Remove all files from the INSTALLFOLDER on uninstall -->
+			  <RemoveFile Id="ALLFILES" Name="*.*" On="both" />
+		  </Component>
+		  
+		  <!--Component with config file of sample application-->
+		  <!--<Component Id="Sample_Application.exe.config">
+			  <File Id="Sample_Application.exe.config" Name="Sample Application.exe.config" Source="$(var.Sample_Application_TargetDir)Sample Application.exe.config" />
+		  </Component>-->
+		  
+	  </ComponentGroup>
+
+	  <DirectoryRef Id="ApplicationProgramsFolder">
+		  
+		  <!--Create application shortcut in Program Menu-->
+		  <Component Id="ApplicationShortcut">
+			  <Shortcut Id="ApplicationStartMenuShortcut" 
+						Name="!(loc.ProductName_$(var.Platform))" 
+						Description="!(loc.Description)" 
+						Icon="icon.ico" 
+					    Target="[%JAVA_HOME]bin\javaw.exe"
+					    Arguments='-jar "[INSTALLDIR]TicTacToe-1.1.0.jar"'
+						WorkingDirectory="INSTALLFOLDER" />
+			  
+			  <!--Remove application shortcut from Program Menu on uninstall-->
+			  <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
+			  
+			  <!--Create application registry entry-->
+			  <RegistryValue Root="HKCU" Key="Software\Microsoft\!(loc.Company)\!(loc.Name)" 
+							 Name="installed" Type="integer" Value="1" KeyPath="yes" />
+			  
+		  </Component>
+		  
+	  </DirectoryRef>
+
+	  <!--Desktop Shortcut-->
+	  <ComponentGroup Id="ComponentGroupDesktopShortcut">
+		  
+		  <Component Id="ComponentDesktopShortcut" Directory="DesktopFolder">
+			  
+			  <!--<Shortcut Id="AppDesktopShortcut" 
+						Name="$(var.Name)" 
+						Description="$(var.Description)" 
+						Directory="DesktopFolder" 
+						Target="[#Sample_Application.exe]" 
+						WorkingDirectory="INSTALLFOLDER" />-->
+			  <Shortcut Id="AppDesktopShortcut"
+						Name="!(loc.ProductName_$(var.Platform))"
+						Description="!(loc.Description)"
+						Directory="DesktopFolder" 
+						Icon="icon.ico"
+					    Target="[%JAVA_HOME]bin\javaw.exe"
+					    Arguments='-jar "[INSTALLDIR]TicTacToe-1.1.0.jar"'
+						WorkingDirectory="INSTALLFOLDER" />
+
+			  <!--Remove desktop shortcut on uninstall-->
+			  <RemoveFolder Id="DesktopFolder" On="uninstall" />
+			  
+			  <RegistryValue Root="HKCU" 
+							 Key="Software\!(loc.Company)\!(loc.Name)" 
+							 Name="installed" 
+							 Type="integer" 
+							 Value="1" 
+							 KeyPath="yes" />
+			  
+		  </Component>
+		  
+	  </ComponentGroup>
+
+
+  </Fragment>
+	
+</Wix>

@@ -1,0 +1,29 @@
+﻿<Project Sdk="WixToolset.Sdk/5.0.0">
+  <PropertyGroup>
+    <ProductVersion>3.9</ProductVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DefineConstants>Debug</DefineConstants>
+    <CompilerAdditionalOptions>-arch x64</CompilerAdditionalOptions>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Variables.wxi" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebHelloWorld\WebHelloWorld.csproj">
+      <Name>WebHelloWorld</Name>
+      <Project>{f950ad86-e90d-4d91-b92b-48e0af8d2cc7}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Http.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.NetFx.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.Iis.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.UI.wixext" Version="5.0.0" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="5.0.0" />
+  </ItemGroup>
+</Project>
