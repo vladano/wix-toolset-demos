@@ -2,27 +2,6 @@
 	
   <Fragment>
 	  
-    <!--<ComponentGroup Id="ExampleComponents" Directory="INSTALLFOLDER">
-      <Component>
-        <File Source="ExampleComponents.wxs" />
-      </Component>
-    </ComponentGroup>-->
-
-	  <!--<DirectoryRef Id="INSTALLFOLDER" FileSource=".\bin\$(var.Platform)\$(var.Configuration)\en-US.0\">-->
-
-
-	  <!--<StandardDirectory Id="ProgramFilesFolder">-->
-		  
-		  <!-- Create a folder inside program files with Company Name-->
-		  <!--<Directory Id="ROOTDIRECTORY" Name="!(loc.Company)">-->
-			  <!-- Create a folder inside Company Name folder with Product Name-->
-			  <!--<Directory Id="INSTALLFOLDER" Name="!(loc.Name)">-->
-				  <!--<StandardDirectory Id="DesktopFolder" />-->
-			  <!--</Directory>
-		  </Directory>
-		  
-	  </StandardDirectory>-->
-	  
 	  <!--Create application folder in Program Menu-->
 	  <StandardDirectory Id="ProgramMenuFolder">
 		  
@@ -41,11 +20,6 @@
 		      <!-- Remove all files from the INSTALLFOLDER on uninstall -->
 			  <RemoveFile Id="ALLFILES" Name="*.*" On="both" />
 		  </Component>
-		  
-		  <!--Component with config file of sample application-->
-		  <!--<Component Id="Sample_Application.exe.config">
-			  <File Id="Sample_Application.exe.config" Name="Sample Application.exe.config" Source="$(var.Sample_Application_TargetDir)Sample Application.exe.config" />
-		  </Component>-->
 		  
 	  </ComponentGroup>
 
@@ -77,12 +51,6 @@
 		  
 		  <Component Id="ComponentDesktopShortcut" Directory="DesktopFolder">
 			  
-			  <!--<Shortcut Id="AppDesktopShortcut" 
-						Name="$(var.Name)" 
-						Description="$(var.Description)" 
-						Directory="DesktopFolder" 
-						Target="[#Sample_Application.exe]" 
-						WorkingDirectory="INSTALLFOLDER" />-->
 			  <Shortcut Id="AppDesktopShortcut"
 						Name="!(loc.ProductName_$(var.Platform))"
 						Description="!(loc.Description)"
@@ -105,7 +73,6 @@
 		  </Component>
 		  
 	  </ComponentGroup>
-
 
   </Fragment>
 	

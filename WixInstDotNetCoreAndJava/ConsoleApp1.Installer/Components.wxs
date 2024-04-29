@@ -11,7 +11,6 @@
     </ComponentGroup>
 
     <!-- Installed files -->
-    <!--<DirectoryRef Id="INSTALLFOLDER" FileSource="..\ConsoleApp1\bin\Debug\netcoreapp2.0\win-$(var.Platform)\publish\">-->
 	  <DirectoryRef Id="INSTALLFOLDER" FileSource="..\apptoinstall\">
 
 		  <!-- Shortcut to main application -->
@@ -24,23 +23,6 @@
 				  WorkingDirectory="INSTALLFOLDER" 
 				  Icon="icon.ico" />
 
-		  <!-- java -jar TicTacToe-1.1.0.jar -->
-		  <!--<Shortcut Id="MainAppShortcut"
-					Name="!(loc.ProductName_$(var.Platform))"
-					Description="My Application Description"
-					Target="javaw.exe"
-					Arguments="-jar TicTacToe-1.1.0.jar"
-					Directory="InstallProgramMenuFolder"
-					WorkingDirectory="INSTALLFOLDER"
-					Icon="icon.ico" />-->
-		  <!--<Shortcut Id="MainAppShortcut" 
-					Name="TicTacToe Java App"
-					Target="C:\Program Files (x86)\Java\jre-1.8\bin\javaw.exe"
-					Arguments='-jar "[INSTALLDIR]TicTacToe-1.1.0.jar"'
-					Directory="InstallProgramMenuFolder" 
-					WorkingDirectory="INSTALLFOLDER"
-					Icon="icon.ico"
-					/>-->
 		  <Shortcut Id="MainAppShortcut1"
 					Name="TicTacToe Java App"
 					Target="[%JAVA_HOME]bin\javaw.exe"

@@ -9,12 +9,10 @@
 
   <String Id="Description" Value="This is a description" />
   <String Id="Comments" Value="Some comment" />
-  <!--<String Id="Keywords" Value="dotnet,core,application,installer" />-->
   <String Id="Keywords" Value="core,dotnet,java,application,installer" />
 
-  <!--<String Id="DowngradeErrorMessage" Value="A newer version of Console App is already installed." />-->
-	<String Id="DowngradeErrorMessage" Value="A newer version of TicTacToeJava_NetCore App is already installed." />
+  <String Id="DowngradeErrorMessage" Value="A newer version of TicTacToeJava_NetCore App is already installed." />
 
-	<String Id="Language" Value="1033" />
+  <String Id="Language" Value="1033" />
   
 </WixLocalization>

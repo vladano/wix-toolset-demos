@@ -50,15 +50,9 @@
 	<WixVariable Id="WixUIDialogBmp" Value="$(var.ProjectDir)\Assets\Background.bmp" />
 	<WixVariable Id="WixUIBannerBmp" Value="$(var.ProjectDir)\Assets\Banner.bmp" />
 
-	<!--<Feature Id="Main">
-      <ComponentGroupRef Id="ExampleComponents" />
-    </Feature>-->
 	  
 	<!-- Define components, shortcuts, files etc... for installer -->
     <Feature Id="ProductFeature" Title="TicTacToe" Level="1">
-		
-	  <!--<ComponentGroupRef Id="ProductComponents" />-->
-	  <!--<ComponentGroupRef Id="PublishedComponents" />-->
 		
 		<!--Main application executable component-->
 		<ComponentGroupRef Id="ProductComponents" />

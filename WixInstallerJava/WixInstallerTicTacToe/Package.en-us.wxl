@@ -17,10 +17,7 @@ This file contains the declaration of all the localizable strings.
 	
 	<String Id="Comments" Value="Some comment" />
 	
-	<!--<String Id="Keywords" Value="dotnet,core,application,installer" />-->
 	<String Id="Keywords" Value="java,application,installer" />
-
-	<!--<String Id="DowngradeErrorMessage" Value="A newer version of TicTacToeJava_NetCore App is already installed." />-->
 
 	<String Id="Language" Value="1033" />
 
