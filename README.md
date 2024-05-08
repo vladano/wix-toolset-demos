@@ -33,10 +33,3 @@ All demos can be build using VS 2022 or command line (CI/CD).
 For the build using command line look at WixInstallerSample and WixDemoInstall.
 
 For more information look documentation at link https://wixtoolset.org/docs/intro/#msbuild.
-
-## Note:
-
-All demos can be build using VS 2022 or command line (CI/CD).
-For the build using command line look at WixInstallerSample and WixDemoInstall.
-
-For more information look documentation at link https://wixtoolset.org/docs/intro/#msbuild.
